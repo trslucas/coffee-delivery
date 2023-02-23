@@ -12,16 +12,16 @@ import Image from 'next/image'
 
 export default function Header() {
   return (
-    <HeaderContainer>
+    <HeaderContainer className="container">
       <Link href="/">
         <Image src={BrandCoffe} alt="" />
       </Link>
       <ActionsContainer>
-        <LocationButton>
+        <LocationButton variant="purple">
           <MapPin size={20} weight="fill" />
           Rio Grande do Sul
         </LocationButton>
-        <CartButton type="button">
+        <CartButton type="button" variant="yellow">
           <ShoppingCart size={20} weight="fill" />
         </CartButton>
       </ActionsContainer>

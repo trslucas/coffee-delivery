@@ -1,15 +1,21 @@
 /* eslint-disable import/prefer-default-export */
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
-  margin: 0 auto;
+  background: ${({ theme }) => theme.colors['base-background']};
   justify-content: space-between;
-  width: 80%;
-  padding: 3rem 6rem;
+  height: 6.5rem;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 5;
 `
-export const Button = styled.button`
+interface HeaderButtonProps {
+  variant: 'purple' | 'yellow'
+}
+export const Button = styled.button<HeaderButtonProps>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,24 +26,29 @@ export const Button = styled.button`
   height: 2.3rem;
   cursor: pointer;
   border-radius: 6px;
+  font-size: ${({ theme }) => theme.textSizes['text-regular-s']};
+
+  ${({ variant, theme }) => css`
+    background: ${theme.colors[`brand-${variant}-light`]};
+    color: ${theme.colors[`brand-${variant}-dark`]};
+  `}
+
+  ${({ variant, theme }) =>
+    variant === 'purple' &&
+    css`
+      svg {
+        color: ${theme.colors[`brand-purple`]};
+      }
+    `}
 `
 
 export const LocationButton = styled(Button)`
   background: #ebe5f9;
   display: flex;
   align-items: center;
-
-  svg {
-    color: #c47f17;
-  }
 `
 
-export const CartButton = styled(Button)`
-  background: #f1e9c9;
-  svg {
-    color: #c47f17;
-  }
-`
+export const CartButton = styled(Button)``
 
 export const ActionsContainer = styled.div`
   display: flex;
@@ -50,7 +61,6 @@ export const LocationContainer = styled.div`
   align-items: center;
   gap: 0.3rem;
   width: 100%;
-  background: purple;
   border-radius: 6px;
   padding: 0.5rem 0.4rem;
   cursor: pointer;

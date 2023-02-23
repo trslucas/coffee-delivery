@@ -8,6 +8,7 @@ import {
 } from './styles'
 import coffeImage from '../../../../assets/Imagem.png'
 import Image from 'next/image'
+import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
 
 export default function HomeHero() {
   return (
@@ -22,12 +23,23 @@ export default function HomeHero() {
             </p>
             <SpanHeroContainer>
               <RightSpanHeroContainer>
-                <span>oi</span>
-                <span>oi</span>
+                <span>
+                  <ShoppingCart size={32} weight="fill" /> Compra simples e
+                  segura
+                </span>
+                <span>
+                  <Package weight="fill" size={32} /> Embalagem mantem o café
+                  intacto
+                </span>
               </RightSpanHeroContainer>
               <LeftSpanHeroContainer>
-                <span>oi</span>
-                <span>oi</span>
+                <span>
+                  <Timer weight="fill" size={32} /> Entrega rápida e rastreada
+                </span>
+                <span>
+                  <Coffee weight="fill" size={32} /> O café chega fresquinho até
+                  você
+                </span>
               </LeftSpanHeroContainer>
             </SpanHeroContainer>
           </TextHeroContainer>

@@ -7,8 +7,15 @@ export default createGlobalStyle`
   }
 
   body {
-    background: ${(props) => props.theme.colors.background};
+    background: ${(props) => props.theme.colors['base-background']};
     font: 400 16px Inter, sans-serif;
+    
+  }
+
+  .container {
+    max-width: 70%;
+    margin-right: auto;
+    margin-left: auto;
   }
 
 `
