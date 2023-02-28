@@ -6,10 +6,13 @@ import {
   CoffeCardInfosAction,
   CoffeCardInfosCartButton,
   CoffeCardInfosPrice,
+  Description,
+  Name,
   Tags,
 } from './styles'
 import Image from 'next/image'
 import { formatMoney } from '@/utils/formatMoney'
+import { RegularText, TextTitle } from '@/components/Typography'
 
 export interface Coffee {
   id: number
@@ -35,11 +38,14 @@ export default function CoffeeCard({ coffee }: CoffeeProps) {
             return <span key={`${coffee.id}${tag}`}>{tag}</span>
           })}
         </Tags>
-        <strong>{coffee.name}</strong>
-        <p>{coffee.description}</p>
+        <Name>{coffee.name}</Name>
+        <Description>{coffee.description}</Description>
         <CoffeCardCartInfos>
           <CoffeCardInfosPrice>
-            <span>R$</span> {formattedPrice}
+            <RegularText size="s">R$</RegularText>
+            <TextTitle size="m" color="text" as="strong">
+              {formattedPrice}
+            </TextTitle>
           </CoffeCardInfosPrice>
           <CoffeCardInfosAction> - 1 + </CoffeCardInfosAction>
           <CoffeCardInfosCartButton>

@@ -1,4 +1,5 @@
 /* eslint-disable import/prefer-default-export */
+import { TextTitle } from '@/components/Typography'
 import { rgba } from 'polished'
 import styled from 'styled-components'
 
@@ -25,42 +26,19 @@ export const HomeHeroContainer = styled.div`
   justify-content: space-between;
   gap: 1rem;
   align-items: center;
-
-  h1 {
-    font-size: 3.5rem;
-    margin-bottom: 2rem;
-  }
-  p {
-    font-size: 1.2rem;
-  }
 `
 export const TextHeroContainer = styled.div`
   max-width: 55%;
 `
 
-export const SpanHeroContainer = styled.div`
-  margin-top: 5rem;
-  max-width: 80%;
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  span {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-  }
-
-  svg {
-    background-color: red;
-    border-radius: 25px;
-  }
+export const TextHero = styled(TextTitle)`
+  margin-bottom: 1rem;
 `
 
-export const RightSpanHeroContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-`
-export const LeftSpanHeroContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
+export const BenefitsContainer = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 1.25rem;
+  margin-top: 4.125rem;
 `

@@ -1,3 +1,4 @@
+import { RegularText, TextTitle } from '@/components/Typography'
 import styled from 'styled-components'
 
 export const CoffeCard = styled.div`
@@ -48,10 +49,6 @@ export const CoffeCardInfos = styled.div`
   text-align: center;
   align-items: center;
   gap: 1rem;
-
-  p {
-    font-size: 0.9rem;
-  }
 `
 
 export const CoffeCardCartInfos = styled.div`
@@ -61,7 +58,30 @@ export const CoffeCardCartInfos = styled.div`
   align-items: center;
 `
 
-export const CoffeCardInfosPrice = styled.div``
+export const Name = styled(TextTitle).attrs({
+  size: 's',
+  color: 'subtitle',
+  weight: 700,
+})`
+  margin-bottom: 0.5rem;
+`
+
+export const Description = styled(RegularText).attrs({
+  size: 's',
+  color: 'label',
+})`
+  margin-bottom: 2rem;
+`
+
+export const CoffeCardInfosPrice = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 3px;
+
+  p {
+    line-height: 0.75rem;
+  }
+`
 
 export const CoffeCardInfosAction = styled.div`
   background: blue;
