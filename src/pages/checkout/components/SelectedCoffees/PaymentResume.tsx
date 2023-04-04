@@ -21,7 +21,7 @@ export function PaymentResume() {
           33,50
         </RegularText>
       </div>
-      <Button text={'Confirar Pedido'} />
+      <Button text={'Confirmar Pedido'} />
     </PaymentResumeContainer>
   )
 }
