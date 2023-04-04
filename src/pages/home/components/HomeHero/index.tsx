@@ -18,7 +18,7 @@ export default function HomeHero() {
   return (
     <>
       <HomeHeroBackgroundContainer>
-        <HomeHeroContainer>
+        <HomeHeroContainer className="container">
           <TextHeroContainer>
             <TextHero size="xl">
               Encontre o café perfeito para qualquer hora do dia

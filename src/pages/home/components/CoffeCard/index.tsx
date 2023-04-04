@@ -3,7 +3,6 @@ import {
   CoffeCard,
   CoffeCardCartInfos,
   CoffeCardInfos,
-  CoffeCardInfosAction,
   CoffeCardInfosCartButton,
   CoffeCardInfosPrice,
   Description,
@@ -13,6 +12,7 @@ import {
 import Image from 'next/image'
 import { formatMoney } from '@/utils/formatMoney'
 import { RegularText, TextTitle } from '@/components/Typography'
+import { QuantityInput } from '@/components/QuantityInput'
 
 export interface Coffee {
   id: number
@@ -47,9 +47,12 @@ export default function CoffeeCard({ coffee }: CoffeeProps) {
               {formattedPrice}
             </TextTitle>
           </CoffeCardInfosPrice>
-          <CoffeCardInfosAction> - 1 + </CoffeCardInfosAction>
+
           <CoffeCardInfosCartButton>
-            <ShoppingCart size={22} />
+            <QuantityInput />
+            <button>
+              <ShoppingCart size={22} weight="fill" />
+            </button>
           </CoffeCardInfosCartButton>
         </CoffeCardCartInfos>
       </CoffeCardInfos>

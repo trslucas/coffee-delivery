@@ -15,6 +15,12 @@ export const HeaderContainer = styled.header`
 interface HeaderButtonProps {
   variant: 'purple' | 'yellow'
 }
+
+export const HeaderItemsContainer = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+`
 export const Button = styled.button<HeaderButtonProps>`
   display: flex;
   align-items: center;

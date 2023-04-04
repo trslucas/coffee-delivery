@@ -4,6 +4,7 @@ import {
   ActionsContainer,
   CartButton,
   HeaderContainer,
+  HeaderItemsContainer,
   LocationButton,
 } from './styles'
 
@@ -12,19 +13,21 @@ import Image from 'next/image'
 
 export default function Header() {
   return (
-    <HeaderContainer className="container">
-      <Link href="/">
-        <Image src={BrandCoffe} alt="" />
-      </Link>
-      <ActionsContainer>
-        <LocationButton variant="purple">
-          <MapPin size={20} weight="fill" />
-          Rio Grande do Sul
-        </LocationButton>
-        <CartButton type="button" variant="yellow">
-          <ShoppingCart size={20} weight="fill" />
-        </CartButton>
-      </ActionsContainer>
+    <HeaderContainer>
+      <HeaderItemsContainer className="container">
+        <Link href="/">
+          <Image src={BrandCoffe} alt="" />
+        </Link>
+        <ActionsContainer>
+          <LocationButton variant="purple">
+            <MapPin size={20} weight="fill" />
+            Rio Grande do Sul
+          </LocationButton>
+          <CartButton type="button" variant="yellow">
+            <ShoppingCart size={20} weight="fill" />
+          </CartButton>
+        </ActionsContainer>
+      </HeaderItemsContainer>
     </HeaderContainer>
   )
 }

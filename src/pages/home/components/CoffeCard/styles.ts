@@ -83,16 +83,28 @@ export const CoffeCardInfosPrice = styled.div`
   }
 `
 
-export const CoffeCardInfosAction = styled.div`
-  background: blue;
+export const CoffeCardInfosCartButton = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 2rem;
-  width: 3rem;
-`
-
-export const CoffeCardInfosCartButton = styled.button`
+  width: 7.5rem;
   background: transparent;
   border: none;
+
+  > button {
+    width: 2.375rem;
+    height: 2.375rem;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: ${({ theme }) => theme.colors['brand-purple-dark']};
+    color: ${({ theme }) => theme.colors['base-card']};
+    border-radius: 6px;
+    margin-left: 0.3rem;
+    transition: 0.4s;
+
+    &:hover {
+      background: ${({ theme }) => theme.colors['brand-purple']};
+    }
+  }
 `
