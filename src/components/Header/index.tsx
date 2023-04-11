@@ -10,8 +10,10 @@ import {
 
 import BrandCoffe from '../../assets/Logo.png'
 import Image from 'next/image'
+import useCart from '@/hooks/useCart'
 
 export default function Header() {
+  const { cartQuantity } = useCart()
   return (
     <HeaderContainer>
       <HeaderItemsContainer className="container">
@@ -23,9 +25,12 @@ export default function Header() {
             <MapPin size={20} weight="fill" />
             Rio Grande do Sul
           </LocationButton>
-          <CartButton type="button" variant="yellow">
-            <ShoppingCart size={20} weight="fill" />
-          </CartButton>
+          <Link href={'/checkout'}>
+            <CartButton type="button" variant="yellow">
+              {cartQuantity >= 1 && <span>{cartQuantity}</span>}
+              <ShoppingCart size={20} weight="fill" />
+            </CartButton>
+          </Link>
         </ActionsContainer>
       </HeaderItemsContainer>
     </HeaderContainer>

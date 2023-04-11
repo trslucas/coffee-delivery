@@ -13,6 +13,8 @@ import Image from 'next/image'
 import { formatMoney } from '@/utils/formatMoney'
 import { RegularText, TextTitle } from '@/components/Typography'
 import { QuantityInput } from '@/components/QuantityInput'
+import useCart from '@/hooks/useCart'
+import { useState } from 'react'
 
 export interface Coffee {
   id: number
@@ -28,7 +30,26 @@ interface CoffeeProps {
 }
 
 export default function CoffeeCard({ coffee }: CoffeeProps) {
+  const [quantity, setQuantity] = useState(1)
+  const { addCoffeeToCart } = useCart()
+
+  function handleIncrease() {
+    setQuantity((state) => state + 1)
+  }
+  function handleDecrease() {
+    setQuantity((state) => state - 1)
+  }
+
+  function handleAddCoffeToCard() {
+    const coffeeToAdd = {
+      ...coffee,
+      quantity,
+    }
+    addCoffeeToCart(coffeeToAdd)
+  }
+
   const formattedPrice = formatMoney(coffee.price)
+
   return (
     <CoffeCard>
       <Image src={`/coffees/${coffee.photo}`} alt="" width={120} height={120} />
@@ -49,8 +70,12 @@ export default function CoffeeCard({ coffee }: CoffeeProps) {
           </CoffeCardInfosPrice>
 
           <CoffeCardInfosCartButton>
-            <QuantityInput />
-            <button>
+            <QuantityInput
+              onIncrease={handleIncrease}
+              onDecrease={handleDecrease}
+              quantity={quantity}
+            />
+            <button onClick={handleAddCoffeToCard}>
               <ShoppingCart size={22} weight="fill" />
             </button>
           </CoffeCardInfosCartButton>
