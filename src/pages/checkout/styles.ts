@@ -1,9 +1,14 @@
 import styled from 'styled-components'
 
-export const CheckoutContainer = styled.div`
+export const CheckoutOrderContainer = styled.form`
+  margin-top: 2.5rem;
   display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+`
+export const SectionBaseStyle = styled.div`
   width: 100%;
-  gap: 1rem;
-
-  margin-top: 2.75rem;
+  background: ${({ theme }) => theme.colors['base-card']};
+  border-radius: 6px;
+  padding: 2.5rem;
 `

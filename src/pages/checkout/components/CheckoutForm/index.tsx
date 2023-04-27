@@ -1,41 +1,56 @@
 import { TextTitle } from '@/components/Typography'
 import {
-  DeliveryFormContainer,
-  DeliveryForm,
-  DeliveryFormAdress,
-  DeliveryPaymentType,
+  CheckoutFormContainer,
+  FormSectionContainer,
+  PaymentMethodOptionsContainer,
 } from './styles'
-import { CurrencyDollar, MapPinLine } from 'phosphor-react'
-import { useTheme } from 'styled-components'
-import DeliveryFormAdressBase from './DeliveryFormAdressBase'
 import { SectionTitle } from '../SectionTitle'
-import { PaymentMethodOptions } from './PaymentMethodOptions'
+import {
+  Bank,
+  CreditCard,
+  CurrencyDollar,
+  MapPinLine,
+  Money,
+} from 'phosphor-react'
+import { useTheme } from 'styled-components'
+import { AddressForm } from './AddressForm'
+import { PaymentMethodInput } from '../PaymentMethodInput'
 
 export function CheckoutForm() {
   const { colors } = useTheme()
-
   return (
-    <DeliveryFormContainer className=".container">
-      <TextTitle>Complete seu pedido</TextTitle>
-      <DeliveryForm>
+    <CheckoutFormContainer>
+      <TextTitle size="xs" color="subtitle">
+        Complete seu pedido
+      </TextTitle>
+
+      <FormSectionContainer>
         <SectionTitle
-          title="Endereço de Entrega!"
-          subtitle="Informe o endereço de onde deseja receber seu pedido"
+          title="Endereço de entrega"
+          subtitle="Informe o endereço onde deseja seu pedido"
           icon={<MapPinLine size={22} color={colors['brand-yellow-dark']} />}
         />
+        <AddressForm />
+      </FormSectionContainer>
 
-        <DeliveryFormAdress>
-          <DeliveryFormAdressBase />
-        </DeliveryFormAdress>
-      </DeliveryForm>
-      <DeliveryPaymentType>
+      <FormSectionContainer>
         <SectionTitle
           title="Pagamento"
           subtitle="O pagamento é feito na entrega. Escolha a forma que deseja pagar"
-          icon={<CurrencyDollar size={24} color={colors['brand-purple']} />}
+          icon={<CurrencyDollar size={22} color={colors['brand-purple']} />}
         />
-        <PaymentMethodOptions />
-      </DeliveryPaymentType>
-    </DeliveryFormContainer>
+        <PaymentMethodOptionsContainer>
+          <PaymentMethodInput
+            paymentType="Dinheiro"
+            icon={<Money size={18} />}
+          />
+          <PaymentMethodInput
+            paymentType="Crédito"
+            icon={<CreditCard size={18} />}
+          />
+          <PaymentMethodInput paymentType="Débito" icon={<Bank size={18} />} />
+        </PaymentMethodOptionsContainer>
+      </FormSectionContainer>
+    </CheckoutFormContainer>
   )
 }
