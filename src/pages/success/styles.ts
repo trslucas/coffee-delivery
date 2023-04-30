@@ -13,7 +13,7 @@ export const SuccessContainer = styled.section`
 export const OrderInfosContainer = styled.div`
   display: flex;
   gap: 3.5rem;
-  aling-items: center;
+  align-items: center;
   justify-content: space-between;
   width: 100%;
 `

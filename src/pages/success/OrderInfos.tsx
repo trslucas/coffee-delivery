@@ -5,9 +5,38 @@ import orderImage from '../../../public/images/Illustration.svg'
 import { InfoWithIcon } from '@/components/InfoWithicon'
 import { useTheme } from 'styled-components'
 import { RegularText } from '@/components/Typography'
-
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 export function OrderInfos() {
   const { colors } = useTheme()
+  const router = useRouter()
+
+  const routerQuery = router.query
+  const { houseNumber, city, street, uf, paymentInput, complement } =
+    routerQuery || {}
+
+  useEffect(() => {
+    if (
+      !houseNumber ||
+      !city ||
+      !street ||
+      !uf ||
+      !paymentInput ||
+      !complement
+    ) {
+      router.push('/')
+    }
+  }, [
+    city,
+    complement,
+    houseNumber,
+    paymentInput,
+    router,
+    routerQuery,
+    street,
+    uf,
+  ])
+
   return (
     <OrderInfosContainer>
       <InfosContainer>
@@ -16,8 +45,13 @@ export function OrderInfos() {
           iconBg={colors['brand-purple']}
           text={
             <RegularText>
-              Entrega em <strong>Rua João Daniel Martinelli, 102</strong> <br />
-              Farrapos - Porto Alegre, RS
+              Entrega em {''}
+              <strong>
+                {street} {''} {houseNumber}
+                {''} {complement}
+              </strong>
+              <br />
+              {city} {''} - {uf}
             </RegularText>
           }
         />
@@ -37,7 +71,7 @@ export function OrderInfos() {
           text={
             <RegularText>
               Pagamento na entrega <br />
-              <strong>Cartão de crédito</strong>
+              <strong>{paymentInput}</strong>
             </RegularText>
           }
         />

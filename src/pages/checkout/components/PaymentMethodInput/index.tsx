@@ -1,20 +1,24 @@
-import { PaymentMethodContainer } from './styles'
-import { ReactNode } from 'react'
-import { RegularText } from '@/components/Typography'
+import { ContentContainer, PaymentMethodContainer } from './styles'
+import { InputHTMLAttributes, ReactNode, forwardRef } from 'react'
 
-interface PaymentMethodInputProps {
+type PaymentMethodInputProps = InputHTMLAttributes<HTMLInputElement> & {
   icon: ReactNode
-  paymentType: string
+  label: string
 }
-
-export function PaymentMethodInput({
-  paymentType,
-  icon,
-}: PaymentMethodInputProps) {
+// eslint-disable-next-line react/display-name
+export const PaymentMethodInput = forwardRef<
+  HTMLInputElement,
+  PaymentMethodInputProps
+>(({ id, icon, label, ...props }, ref) => {
   return (
     <PaymentMethodContainer>
-      {icon}
-      <RegularText size="s">{paymentType}</RegularText>
+      <input id={id} type="radio" {...props} name="paymentInput" ref={ref} />
+      <label htmlFor={id}>
+        <ContentContainer>
+          {icon}
+          {label}
+        </ContentContainer>
+      </label>
     </PaymentMethodContainer>
   )
-}
+})

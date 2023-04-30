@@ -1,20 +1,10 @@
 import { TextTitle } from '@/components/Typography'
-import {
-  CheckoutFormContainer,
-  FormSectionContainer,
-  PaymentMethodOptionsContainer,
-} from './styles'
+import { CheckoutFormContainer, FormSectionContainer } from './styles'
 import { SectionTitle } from '../SectionTitle'
-import {
-  Bank,
-  CreditCard,
-  CurrencyDollar,
-  MapPinLine,
-  Money,
-} from 'phosphor-react'
+import { CurrencyDollar, MapPinLine } from 'phosphor-react'
 import { useTheme } from 'styled-components'
 import { AddressForm } from './AddressForm'
-import { PaymentMethodInput } from '../PaymentMethodInput'
+import { PaymentMethodOptions } from './PaymentMethodOptions'
 
 export function CheckoutForm() {
   const { colors } = useTheme()
@@ -39,17 +29,7 @@ export function CheckoutForm() {
           subtitle="O pagamento é feito na entrega. Escolha a forma que deseja pagar"
           icon={<CurrencyDollar size={22} color={colors['brand-purple']} />}
         />
-        <PaymentMethodOptionsContainer>
-          <PaymentMethodInput
-            paymentType="Dinheiro"
-            icon={<Money size={18} />}
-          />
-          <PaymentMethodInput
-            paymentType="Crédito"
-            icon={<CreditCard size={18} />}
-          />
-          <PaymentMethodInput paymentType="Débito" icon={<Bank size={18} />} />
-        </PaymentMethodOptionsContainer>
+        <PaymentMethodOptions />
       </FormSectionContainer>
     </CheckoutFormContainer>
   )

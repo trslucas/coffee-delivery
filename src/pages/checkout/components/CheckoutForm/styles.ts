@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { SectionBaseStyle } from '../../styles'
+import * as RadioGroup from '@radix-ui/react-radio-group'
 
 export const CheckoutFormContainer = styled.div`
   display: flex;
@@ -35,8 +36,13 @@ export const AddressFormContainer = styled.div`
   }
 `
 
-export const PaymentMethodOptionsContainer = styled.div`
+export const PaymentMethodOptionsContainer = styled(RadioGroup.Root)`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.75rem;
+
+  p {
+    grid-column: span 3;
+    color: ${({ theme }) => theme.colors['base-error']};
+  }
 `

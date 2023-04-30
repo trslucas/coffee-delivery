@@ -1,6 +1,22 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const PaymentMethodContainer = styled.div`
+  > input[type='radio'] {
+    visibility: hidden;
+    appearance: none;
+  }
+  > input[type='radio']:checked + label div {
+    ${({ theme }) => css`
+      background: ${theme.colors['brand-purple-light']};
+      border-color: ${theme.colors['brand-purple']};
+      &:hover {
+        background: ${theme.colors['brand-purple-light']};
+      }
+    `}
+  }
+`
+
+export const ContentContainer = styled.div`
   padding: 0 1rem;
 
   background: ${({ theme }) => theme.colors['base-button']};
@@ -13,8 +29,8 @@ export const PaymentMethodContainer = styled.div`
   text-transform: uppercase;
   border-radius: 6px;
   height: 3rem;
-  boder: 1px solid ${({ theme }) => theme.colors['base-button']};
-  transiton: 0.4s;
+  border: 1px solid ${({ theme }) => theme.colors['base-button']};
+  transition: 0.4s;
   cursor: pointer;
 
   svg {
